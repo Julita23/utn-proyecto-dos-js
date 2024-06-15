@@ -3,6 +3,7 @@
   --secondary-color: black;
   --primary-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   --secondary-font:  'Courier New', Courier, monospace;
+  --primary-text: justify;
 }
 
 body {
@@ -16,7 +17,7 @@ body {
     font-family: "Oswald", Helvetica Neue;
     font-size: 5vh;
     color: var(--primary-color);
-
+    margin: 15px;
   }
   
   header {
@@ -127,13 +128,15 @@ body {
   .third-section p {
     font-family: var(--secondary-font);
     font-size: 3vh;
+    margin: 6vh;
+    text-align: var(--primary-text);
   }
 
   .third-section a {
     display: inline-block;
     padding: 10px 20px;
     background-color: var(--secondary-color);
-    color: white;
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 16px;
     border-radius: 5px;
@@ -143,6 +146,43 @@ body {
   
   .third-section a:hover {
     transform: scale(1.1);
+  }
+
+  .fourth-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .fourth-section .elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .fourth-section .text-container {
+    flex: 2;
+    padding-right: 20px;
+    font-family: var(--secondary-font);
+    text-align: var(--primary-text);
+  }
+
+  .fourth-section p {
+    padding-left: 20px;
+  }
+  
+  .fourth-section .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .fourth-section img {
+    max-width: 100%;
+    height: auto;
   }
   
   footer {
