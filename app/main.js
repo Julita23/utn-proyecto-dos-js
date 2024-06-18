@@ -7,13 +7,16 @@ const urlApiHP = "https://hp-api.onrender.com/api/characters";
 fetch(urlApiHP)
   .then((response) => response.json())
   .then((data) => {
-    let charactersHTML = ''; // Definir charactersHTML aquí
+    let charactersHTML = '';
     data.forEach(character => {
-      charactersHTML += `
+        charactersHTML += `
         <div class="character">
           <img src="${character.image}" alt="${character.name}">
           <h2>${character.name}</h2>
-          <p>${character.house || 'Unknown'}</p>
+          <p>Casa: ${character.house || 'No encontrada'}</p>
+          <p>Patronus: ${character.patronus}</p>
+          <p>Estado: ${character.alive ? 'vive' : 'fallecido'}</p>
+          <p>actor: ${character.actor}</p>
         </div>
       `;
     });
