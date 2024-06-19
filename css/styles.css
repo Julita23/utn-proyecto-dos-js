@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --primary-color: white;
   --secondary-color: black;
@@ -7,9 +13,8 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: var(--primary-font);
+  overflow-x: hidden;
 }
 
 h1,
@@ -22,7 +27,6 @@ h2,
 }
 
 header {
-  font-family: var(--primary-font);
   background-color: var(--secondary-color);
   color: var(--primary-color);
   padding: 1em 0;
@@ -36,7 +40,7 @@ nav ul {
 }
 
 nav ul li {
-  margin: 0 1em;
+  margin: 0 10px;
   transition: transform 0.3s;
   cursor: pointer;
 }
@@ -46,15 +50,22 @@ nav ul li:hover {
 }
 
 nav ul li a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
   color: var(--primary-color);
   text-decoration: none;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+  font-family: var(--primary-font);
 }
 
 main {
   padding: 2em;
   text-align: center;
   background-image: url(../assets/main.jpg);
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center;
 }
 
@@ -70,7 +81,8 @@ section {
 .first-section {
   max-width: 850px;
   margin: 0 auto;
-  font-family: var(--secondary-font)
+  font-family: var(--secondary-font);
+  padding: 0 20px;
 }
 
 .id-list ul {
@@ -104,8 +116,10 @@ section {
   justify-content: center;
   align-items: center;
   font-family: var(--secondary-font);
-  margin: 4vh;
+  margin: 4vh 0;
   cursor: pointer;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .houses-title {
@@ -114,7 +128,6 @@ section {
   margin-left: -2em;
   padding: 10px 2em;
 }
-
 
 .second-section img {
   width: auto;
@@ -219,7 +232,7 @@ section {
   padding-left: 20px;
 }
 
-.fourth-section .image-container {
+.fourth-section .broom-container {
   flex: 1;
   display: flex;
   justify-content: flex-end;
@@ -245,7 +258,6 @@ section {
   height: 140px;
 }
 
-
 #scrollBtn img {
   width: 100%;
   height: 100%;
@@ -256,7 +268,6 @@ section {
 }
 
 footer {
-  font-family: var(--secondary-font);
   background-color: var(--secondary-color);
   color: var(--primary-color);
   text-align: center;
@@ -274,7 +285,8 @@ footer {
   cursor: pointer;
 }
 
-.character {
+.character,
+.characters .character {
   background-color: var(--secondary-color);
   border: 1px solid #444;
   border-radius: 8px;
@@ -283,25 +295,206 @@ footer {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.character img {
+.character img,
+.characters .character img {
   width: 100%;
   height: auto;
 }
 
-.character h2 {
+.character h2,
+.characters .character h2 {
   font-size: 1.5em;
   margin: 8px 0;
   font-family: var(--primary-font);
 }
 
-.character p {
+.character p,
+.characters .character p {
   font-size: 1em;
   margin: 4px 0;
   font-family: var(--secondary-font);
   color: var(--primary-color);
 }
 
-.character:hover {
+.character:hover,
+.characters .character:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Media Queries */
+@media screen and (max-width: 880px) {
+  .second-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .houses-title {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .second-section > div {
+    margin: 0 0 40px;
+  }
+
+  .grid {
+    gap: 20px;
+  }
+
+  .character h2,
+  .characters .character h2 {
+    font-size: 1.2em;
+  }
+
+  .character p,
+  .characters .character p {
+    font-size: 0.9em;
+  }
+
+  .characters .grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  nav ul li {
+    margin: 0 5px;
+  }
+
+  nav ul li a {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .second-section img,
+  .quidditch .elements img,
+  .quidditch .elements-container img {
+    filter: none;
+  }
+
+  #houses .second-section > div,
+  #link-to-houses .third-section,
+  #quidditch .fourth-section {
+    padding: 4vh 1em;
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  .character h2,
+  .characters .character h2 {
+    font-size: 1.2em;
+  }
+
+  .character p,
+  .characters .character p {
+    font-size: 0.8em;
+  }
+
+  .characters {
+    padding: 1em;
+  }
+
+  .characters .grid {
+    gap: 10px;
+  }
+
+  nav ul li {
+    margin: 0 5px;
+  }
+
+  nav ul li a {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}
+
+/* Styles specific to personajes.html */
+.characters {
+  padding: 2em;
+  text-align: center;
+  background-image: url(../assets/main.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.characters .grid {
+  gap: 20px;
+}
+
+.characters .character {
+  background-color: var(--secondary-color);
+  border: 1px solid #444;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.characters .character img {
+  width: 100%;
+  height: auto;
+}
+
+.characters .character h2 {
+  font-size: 1.5em;
+  margin: 8px 0;
+  font-family: var(--primary-font);
+}
+
+.characters .character p {
+  font-size: 1em;
+  margin: 4px 0;
+  font-family: var(--secondary-font);
+  color: var(--primary-color);
+}
+
+.characters .character:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 880px) {
+  .characters .grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .characters {
+    padding: 1em;
+  }
+
+  .characters .grid {
+    gap: 10px;
+  }
+
+  .characters .character h2 {
+    font-size: 1.2em;
+  }
+
+  .characters .character p {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .characters {
+    padding: 1em;
+  }
+
+  .characters .grid {
+    gap: 10px;
+  }
+
+  .characters .character h2 {
+    font-size: 1.2em;
+  }
+
+  .characters .character p {
+    font-size: 0.8em;
+  }
 }
